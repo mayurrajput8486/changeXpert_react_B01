@@ -1,4 +1,4 @@
-import ChildC from "./ChildC"
+/* import ChildC from "./ChildC"
 
 const ChildB = ({greetA}) => {
   return (
@@ -9,4 +9,23 @@ const ChildB = ({greetA}) => {
   )
 }
 
+export default ChildB */
+
+import ChildC from "./ChildC"
+import { AppName, Appversion } from "../context/mycontext"
+import { useContext } from "react"
+
+const ChildB = () => {
+  const x = useContext(AppName)
+  const y = useContext(Appversion)
+  return (
+    <div style={{backgroundColor : 'orange', padding : '20px', textAlign : 'center'}}>
+        <h3>ChildB Comp - {x} - {y}</h3>
+        <ChildC/>
+    </div>
+  )
+}
+
 export default ChildB
+
+//AppName and AppVersion in ChildB
