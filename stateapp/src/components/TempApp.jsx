@@ -3,7 +3,7 @@ import './TempApp.css'
 const TempApp = () => {
   const [temp,setTemp] = useState(20)
   const [color,setColor] = useState('normal')
-  const [divSize, setDivsize] = useState()
+
 
   const increment = () =>{
     setTemp(temp + 1)
