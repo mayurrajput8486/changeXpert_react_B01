@@ -5,6 +5,7 @@ import TempApp from './components/TempApp'
 import TempControlApp from './components/TempControlApp'
 import Formdata from './components/Formdata'
 import Loginform from './components/Loginform'
+import Employees from './components/Employees'
 const App = () => {
   return (
     <div className='text-primary text-center'>
@@ -12,9 +13,10 @@ const App = () => {
       {/* <CartValue/>  */}
       {/* <TempApp/>  */}
       {/* <TempControlApp/> */}
-      <Formdata/>
+      {/* <Formdata/> */}
       <br/>
-      <Loginform/>
+      {/* <Loginform/> */}
+      <Employees/>
     </div>
   )
 }

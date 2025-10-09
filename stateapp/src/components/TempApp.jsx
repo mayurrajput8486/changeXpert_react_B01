@@ -44,8 +44,8 @@ const TempApp = () => {
           }
         </div>
         <div className='btngroups'>
-          <button onClick={increment}>+</button>
-          <button onClick={decrement}>-</button>
+          <button className='b' onClick={increment}>+</button>
+          <button className='b' onClick={decrement}>-</button>
         </div>
       </div>
     </div>
