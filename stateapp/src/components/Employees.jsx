@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-
+import './Employees.css'
 const Employees = () => {
     const [name,setName] = useState('')    //manage the full name
     const [email,setEmail] = useState('') // manage the email
     const [age, setAge] = useState('')    // manage the age
     const [profile, setProfile] = useState(null) //manage the profile image of emp
     const [emp, setEmp] = useState([])  // to store employee data
+    const [editempid, seteditempId] = useState(null) //this hook track which employee being edited
 
 
     const imageHandler = (e) =>{
@@ -25,19 +26,27 @@ const Employees = () => {
         e.preventDefault()
 
         if(name && email && age && profile){
-        //I want to stored data in array in the Object format
-        const newEmp = {
-            id : Date.now(),
-            name, 
-            email, 
-            age,
-            profile
+            if(editempid){
+                const updateEmployee = emp.map((employee)=>{
+                    return employee.id === editempid ? {...employee,name,email,age,profile} : employee
+                })
+            setEmp(updateEmployee)
+            seteditempId(null) //this used to clear the previous id
+            }else{
+           
+                //I want to stored data in array in the Object format
+                    const newEmp = {
+                        id : Date.now(),
+                        name, 
+                        email, 
+                        age,
+                        profile
+                }
+                //...spread operator is used to hold the past or existing data 
+                //Date Object is used to manage the date related operation
+                //now() method is used call the time in milliseconds
+                setEmp([...emp, newEmp]) //this method add object in the array [{},{},{}]
         }
-        //...spread operator is used to hold the past or existing data 
-        //Date Object is used to manage the date related operation
-        //now() method is used call the time in milliseconds
-        setEmp([...emp, newEmp]) //this method add object in the array [{},{},{}]
-
         //if you want to clear form filed automatically
         setName('')
         setEmail('')
@@ -48,6 +57,14 @@ const Employees = () => {
         }else{
             alert('Please Enter All Details along with profile')
         }
+    }
+
+    const editEmployee = (emp) =>{
+        setName(emp.name)
+        setEmail(emp.email)
+        setAge(emp.age)
+        setProfile(emp.profile)
+        seteditempId(emp.id)
     }
 
     const deleteEmployee = (id) =>{
@@ -94,7 +111,9 @@ const Employees = () => {
                     multiple
                 />
 
-                <button type='submit' className='btn btn-outline-primary' >Add Employee</button>
+                <button type='submit' className='btn btn-outline-primary' >
+                    {editempid ? "Update Employee" : "Add Employee"}
+                </button>
             </form>
         </div>
         <div>
@@ -111,10 +130,10 @@ const Employees = () => {
                 </thead>
                 <tbody>
                     {
-                        emp.map((e)=>{
+                        emp.map((e,index)=>{
                             return(
                                 <tr key={e.id}>
-                                    <td>{e.id}</td>
+                                    <td className='data'>{index + 1}</td>
                                     <td>
                                         <img
                                             src={e.profile}
@@ -124,11 +143,12 @@ const Employees = () => {
                                             style={{borderRadius : '50%'}}
                                         />
                                     </td>
-                                    <td>{e.name}</td>
-                                    <td>{e.email}</td>
-                                    <td>{e.age}</td>
-                                    <td>
+                                    <td className='data'>{e.name}</td>
+                                    <td className='data'>{e.email}</td>
+                                    <td className='data'>{e.age}</td>
+                                    <td className='data'>
                                         <button className='btn btn-danger' onClick={()=>deleteEmployee(e.id)}>Delete</button>
+                                        <button className='btn btn-warning ms-3' onClick={()=>editEmployee(e)}>Edit</button>
                                     </td>
                                 </tr>
                             )
@@ -141,4 +161,8 @@ const Employees = () => {
   )
 }
 
-export default Employees
+export default Employees;
+
+
+//Home Work -
+//regId,Student Full Name, course (select tag), date of addmission,contact
