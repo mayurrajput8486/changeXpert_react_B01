@@ -6,6 +6,7 @@ import TempControlApp from './components/TempControlApp'
 import Formdata from './components/Formdata'
 import Loginform from './components/Loginform'
 import Employees from './components/Employees'
+import Calculator from './components/Calculator'
 const App = () => {
   return (
     <div className='text-primary text-center'>
@@ -16,7 +17,8 @@ const App = () => {
       {/* <Formdata/> */}
       <br/>
       {/* <Loginform/> */}
-      <Employees/>
+      {/* <Employees/> */}
+      <Calculator/>
     </div>
   )
 }

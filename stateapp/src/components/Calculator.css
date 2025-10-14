@@ -1,0 +1,50 @@
+.calculator{
+    width: 300px;
+    margin: auto;
+    margin-top: 30px;
+    border: 2px solid;
+    background: linear-gradient(rgb(178, 179, 241),rgb(236, 193, 193),rgb(228, 185, 212));
+    border-radius: 15px;
+    padding: 15px;
+}
+.screen{
+    height: 60px;
+    background-color: black;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+.mydata{
+    width: 100%;
+    background-color: black;
+    outline: none;
+    border: 0px;
+    border-radius: 15px;
+    font-size: 20px;
+    color: rgb(232, 236, 226);
+    text-align: right;
+    padding-right: 10px;
+    height: 60px;
+}
+.button{
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 20px;
+}
+.buttons{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+}
+
+.clear{
+    grid-column: span 2;
+}
+
+.edit{
+    grid-column: span 2;
+}
+
+.operator{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
