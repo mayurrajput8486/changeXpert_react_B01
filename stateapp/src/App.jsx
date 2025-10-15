@@ -7,18 +7,20 @@ import Formdata from './components/Formdata'
 import Loginform from './components/Loginform'
 import Employees from './components/Employees'
 import Calculator from './components/Calculator'
+import BgMode from './components/BgMode'
+import './App.css'
 const App = () => {
   return (
-    <div className='text-primary text-center'>
+    <div className='text-primary text-center' >
       {/* <Counter/> */}
       {/* <CartValue/>  */}
       {/* <TempApp/>  */}
       {/* <TempControlApp/> */}
       {/* <Formdata/> */}
-      <br/>
       {/* <Loginform/> */}
       {/* <Employees/> */}
-      <Calculator/>
+      {/* <Calculator/> */}
+      <BgMode/>
     </div>
   )
 }
